@@ -11,7 +11,7 @@ from core.pagination import CustomCursorPagination
 
 
 class RateThrottle(UserRateThrottle):
-    rate_limit = 5
+    rate_limit = 10
     rate = f'{rate_limit}/day'
 
 
