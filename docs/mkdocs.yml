@@ -1,0 +1,28 @@
+site_name: Blog Project Documentation
+site_url: https://negarff95.github.io/blog_project
+repo_url: https://github.com/negarff95/blog_project
+theme:
+  name: readthedocs
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+nav:
+  - Home: index.md
+  - User Guide:
+    - Introduction: user_guide/introduction.md
+    - Installation: user_guide/installation.md
+  - API Reference: api_reference.md
+  - Handling Wild and Outlier Rates: handling_outliers.md
+  - Code Optimization and Asynchronous Tasks: async_and_optimization
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - sane_lists
+  - smarty

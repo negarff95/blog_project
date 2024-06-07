@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${DATABASE__NAME}
+      POSTGRES_USER: ${DATABASE__USER}
+      POSTGRES_PASSWORD: ${DATABASE__PASSWORD}
+
+  redis:
+    image: redis:latest
+
+  web:
+    build: .
+    command: >
+      sh -c "cd docs && mkdocs serve -a 0.0.0.0:8001 & cd /code &&
+             python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+      - static_volume:/code/staticfiles
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .env
+
+  celery:
+    build: .
+    command: celery -A blog_project worker -l INFO -B -Q periodic_queue
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .env
+
+volumes:
+  postgres_data:
+  static_volume:
