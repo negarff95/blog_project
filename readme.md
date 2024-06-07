@@ -13,14 +13,26 @@ Following applications must be installed and configured:
 ```
 python -m venv _env  && source _env/bin/activate
 ```
-- Install requirements:
-```
-pip install -r requirements.txt
-```
 - Copy `env.sample` as `.env` in root folder:
 ```
 cp env.sample .env
 ```
+#### If running Docker:
+
+```
+docker-compose build
+docker-compose up
+```
+- In .env file set DATABASE__HOST to db.
+- And for celery set redis instead of localhost.
+
+#### If not running Docker
+
+- Install requirements:
+```
+pip install -r requirements.txt
+```
+
 - Configure settings in `.env` file with your stack data.
 - Export environment variables:
 ```
@@ -39,11 +51,3 @@ python manage.py runserver
 ```
 celery -A blog_project worker -l INFO -B -Q periodic_queue
 ```
-
-### Docs
-- To access documentation, check https://negarff95.github.io/blog_project/.
-
-
-
-
-
