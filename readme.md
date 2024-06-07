@@ -51,3 +51,6 @@ python manage.py runserver
 ```
 celery -A blog_project worker -l INFO -B -Q periodic_queue
 ```
+
+### Docs
+- To access documentation, check https://negarff95.github.io/blog_project/.

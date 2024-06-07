@@ -1,8 +1,9 @@
 site_name: Blog Project Documentation
 site_url: https://negarff95.github.io/blog_project
 repo_url: https://github.com/negarff95/blog_project
+
 theme:
-  name: readthedocs
+  name: mkdocs
   palette:
     primary: 'indigo'
     accent: 'indigo'
