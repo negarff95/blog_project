@@ -16,7 +16,7 @@ services:
   web:
     build: .
     command: >
-      sh -c "cd docs && mkdocs serve -a 0.0.0.0:8001 & cd /code &&
+      sh -c "mkdocs serve -a 0.0.0.0:8001 &&
              python manage.py migrate &&
              python manage.py collectstatic --noinput &&
              python manage.py runserver 0.0.0.0:8000"
