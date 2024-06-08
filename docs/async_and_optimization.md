@@ -58,10 +58,10 @@ Maintaining a running sum of rates and weighted metrics optimizes the calculatio
 - Improves efficiency, especially as the number of rates increases.
 - Ensures that the average rate calculation is quick and does not degrade with more data.
 
-### Clustered Pagination
+### Cursor Pagination
 
 **Description**:
-Using clustered pagination for large datasets, because it doesn't require the database to skip over records(in compare to off-set).
+Using cursor pagination for large datasets, because it doesn't require the database to skip over records(in compare to off-set).
 
 **Benefits**:
 
